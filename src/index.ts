@@ -21,9 +21,9 @@ mongoose
     console.error("MongoDB connection error:", err);
   });
 
-  app.use('/api/order',OrderRoutes)
-  app.use("/api/payment", Webhook);
-app.use("/api/payment", PaymentRoute);
+  app.use('/order',OrderRoutes)
+  app.use("/payment", Webhook);
+app.use("/payment", PaymentRoute);
 
 app.listen(8001,()=>{
     console.log('server connected on port 8001');
