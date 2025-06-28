@@ -2,8 +2,10 @@ import express from 'express';
 import mongoose from 'mongoose';
 import "dotenv/config";
 import cors from "cors";
-import OrderRoutes from '../src/routes/OrderRoute'
 const app=express();
+import OrderRoutes from '../src/routes/OrderRoute'
+import PaymentRoute from "./routes/payment";
+import Webhook from "./routes/webhook";
 
 const allowedOrigins = ["http://localhost:5173", "https://khane-wala.vercel.app"];
 app.use(
@@ -20,6 +22,9 @@ mongoose
   });
 
   app.use('/api/order',OrderRoutes)
+  app.use("/api/payment", Webhook);
+app.use("/api/payment", PaymentRoute);
+
 app.listen(8001,()=>{
     console.log('server connected on port 8001');
 })
