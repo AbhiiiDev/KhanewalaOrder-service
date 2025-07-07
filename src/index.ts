@@ -24,7 +24,7 @@ mongoose
   app.use('/order',OrderRoutes)
   app.use("/payment", Webhook);
 app.use("/payment", PaymentRoute);
-
-app.listen(8001,()=>{
+const PORT = process.env.PORT || 8001;
+app.listen(PORT,()=>{
     console.log('server connected on port 8001');
 })
