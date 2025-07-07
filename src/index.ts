@@ -26,5 +26,5 @@ mongoose
 app.use("/payment", PaymentRoute);
 const PORT = process.env.PORT || 8001;
 app.listen(PORT,()=>{
-    console.log('server connected on port 8001');
+    console.log(`server connected on port: ${PORT}`);
 })
