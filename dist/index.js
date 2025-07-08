@@ -8,7 +8,7 @@ const mongoose_1 = __importDefault(require("mongoose"));
 require("dotenv/config");
 const cors_1 = __importDefault(require("cors"));
 const app = (0, express_1.default)();
-const OrderRoute_1 = __importDefault(require("../src/routes/OrderRoute"));
+const OrderRoute_1 = __importDefault(require("./routes/OrderRoute"));
 const payment_1 = __importDefault(require("./routes/payment"));
 const webhook_1 = __importDefault(require("./routes/webhook"));
 const allowedOrigins = ["http://localhost:5173", "https://khane-wala.vercel.app"];
