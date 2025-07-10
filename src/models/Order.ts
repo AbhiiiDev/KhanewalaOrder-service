@@ -26,7 +26,24 @@ const OrderSchema = new mongoose.Schema({
     paymentIntentId: { type: String }, // for Stripe, Razorpay, PayPal etc
  // or embed Address schema if you want
     createdAt: { type: Date, default: Date.now },
-    updatedAt: { type: Date, default: Date.now }
+    updatedAt: { type: Date, default: Date.now },
+      // ✅ New Fields for Tracking
+ // Timestamps for status flow
+  timestamps: {
+    placedAt: Date,
+    confirmedAt: Date,
+    preparedAt: Date,
+    pickedAt: Date,
+    deliveredAt: Date,
+  },
+
+  // Tracking history (can be used even without delivery partner)
+  trackingUpdates: [
+    {
+      timestamp: { type: Date, default: Date.now },
+      status: String
+    }
+  ]
 }, { timestamps: true }); // auto adds createdAt + updatedAt
 
 
