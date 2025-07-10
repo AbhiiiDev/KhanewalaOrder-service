@@ -31,8 +31,18 @@ try {
 }
 
 }
-
-
+const getRestaurantOrder=async(req:Request,res:Response)=>{
+    const resId=req.params.resId;
+    try {
+    const orders=await Order.find({restaurant:resId});
+    if(!orders)
+        return res.status(404).json({message:"Can't find any order"});
+    return res.json(orders);
+} catch (error) {
+    console.log(error);
+    res.status(400).json({message:"Internal Server Error, something went wrong"})
+}
+}
 export {
-    getOrder,getAllOrder
+    getOrder,getAllOrder,getRestaurantOrder
 }
