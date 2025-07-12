@@ -32,9 +32,9 @@ try {
 
 }
 const getRestaurantOrder=async(req:Request,res:Response)=>{
-    const resId=req.params.resId;
+    const restId=req.params.restId;
     try {
-    const orders=await Order.find({restaurant:resId});
+    const orders=await Order.find({restaurant:restId});
     if(!orders)
         return res.status(404).json({message:"Can't find any order"});
     return res.json(orders);
